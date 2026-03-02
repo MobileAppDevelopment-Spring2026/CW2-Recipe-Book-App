@@ -31,6 +31,15 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                image,
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(height: 20),
             Card(
               shape: RoundedRectangleBorder(
