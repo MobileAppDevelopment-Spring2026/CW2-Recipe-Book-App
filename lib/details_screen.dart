@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
+import 'models/recipe.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final String recipeName;
-  final List<String> ingredients;
-  final String instructions;
-  final String image;
+  final Recipe recipe;
 
   const DetailsScreen({
     super.key,
-    required this.recipeName,
-    required this.ingredients,
-    required this.instructions,
-    required this.image,
+    required this.recipe,
   });
 
   @override
@@ -21,7 +16,7 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.green[600],
         title: Text(
-          recipeName,
+          recipe.name,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -34,7 +29,7 @@ class DetailsScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
-                image,
+                recipe.image,
                 height: 250,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -60,7 +55,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    ...ingredients.map((ingredient) => Padding(
+                    ...recipe.ingredients.map((ingredient) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +95,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      instructions,
+                      recipe.instructions,
                       style: const TextStyle(fontSize: 18, height: 1.5),
                     ),
                   ],
