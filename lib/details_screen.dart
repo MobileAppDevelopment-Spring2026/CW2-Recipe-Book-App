@@ -4,12 +4,14 @@ class DetailsScreen extends StatelessWidget {
   final String recipeName;
   final List<String> ingredients;
   final String instructions;
+  final String image;
 
   const DetailsScreen({
     super.key,
     required this.recipeName,
     required this.ingredients,
     required this.instructions,
+    required this.image,
   });
 
   @override
@@ -50,20 +52,20 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     ...ingredients.map((ingredient) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('• ', style: TextStyle(fontSize: 18)),
-                          Expanded(
-                            child: Text(
-                              ingredient,
-                              style: const TextStyle(fontSize: 18),
-                            ),
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('• ', style: TextStyle(fontSize: 18)),
+                              Expanded(
+                                child: Text(
+                                  ingredient,
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        )),
                   ],
                 ),
               ),
